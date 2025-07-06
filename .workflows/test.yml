@@ -1,0 +1,12 @@
+name: Exemplo de Variáveis de Ambiente (Environment)
+
+on: [push] 
+
+jobs:
+  deploy_to_environment:
+    environment: production # Este job usará as variáveis/secrets do ambiente 'production'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Acessar variáveis do ambiente
+        run: |
+          echo "A URL de produção é: ${{ vars.CLIENT_ID }}" # Se PRODUCTION_URL for uma variável do ambiente
